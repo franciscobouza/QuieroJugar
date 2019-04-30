@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET		/										controllers.Application.index()
+GET     /login									controllers.Application.login(user: String, password: String)
+POST    /registrar								controllers.Application.registrar()
+GET		/getCanchas								controllers.Application.getCanchas()
+GET		/getCancha								controllers.Application.getCancha(nombre: String)
+GET		/getPartidos							controllers.Application.getPartidos(nombreCancha: String)
+GET		/getPartido								controllers.Application.getPartido(idPartido: Integer)
+POST	/crearPartido							controllers.Application.crearPartido()
+POST	/inscribirseAPartido					controllers.Application.inscribirseAPartido()
+GET		/noSeSiSeraDemasiado					controllers.Application.noSeSiSeraDemasiado(latO: Double, longO: Double)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /canchas/*file				controllers.FileService.getFile(file: String)
